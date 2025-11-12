@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply min-h-screen bg-midnight text-slate-100 antialiased;
+}
+
+a {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-aurora/60 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight;
+}
