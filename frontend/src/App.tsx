@@ -173,6 +173,157 @@ const App: FC = () => {
                 <div className="rounded-3xl border border-[#ff4afc]/30 bg-black/20 p-6">
                   <div className="text-4xl font-bold text-white">24/7</div>
                   <p className="mt-2 text-sm text-white/60">На связи по проекту, отправляю промежуточные результаты и правки.</p>
+import type { FC } from 'react'
+
+const highlights = [
+  {
+    title: 'Стратегия роста',
+    description:
+      'Гибкая система аналитики помогает отслеживать прогресс кампаний и выявлять новые точки роста бренда.',
+    accent: 'bg-gradient-to-r from-aurora/80 to-lilac/80',
+  },
+  {
+    title: 'Команда экспертов',
+    description:
+      'Наставники, дизайнеры и маркетологи работают как единое целое, формируя полный цикл сопровождения.',
+    accent: 'bg-gradient-to-r from-lilac/80 to-aurora/80',
+  },
+  {
+    title: 'Автоматизация процессов',
+    description:
+      'Единая платформа синхронизирует задачи, снижает операционные риски и экономит время команды.',
+    accent: 'bg-gradient-to-r from-sky-500/70 to-lilac/70',
+  },
+]
+
+const features = [
+  {
+    title: 'Диагностика бренда',
+    copy: 'Запускаем сессию исследований, чтобы глубоко понять ценности компании и аудиторию.',
+    pill: '01',
+  },
+  {
+    title: 'Дизайн-платформа',
+    copy: 'Создаем визуальную систему, которая легко масштабируется на любые каналы коммуникации.',
+    pill: '02',
+  },
+  {
+    title: 'Воронка взаимодействия',
+    copy: 'Продумываем сценарии касаний и автоматизируем персонализированные сообщения.',
+    pill: '03',
+  },
+  {
+    title: 'Метрики успеха',
+    copy: 'Подключаем дашборды, которые показывают динамику роста и ценность каждого шага.',
+    pill: '04',
+  },
+]
+
+const steps = [
+  {
+    title: 'Погружение',
+    details: 'Встреча с командой, аудит текущих активов, формирование гипотез развития.',
+  },
+  {
+    title: 'Прототипирование',
+    details: 'Разработка сценариев и дизайн-концептов, тестирование на фокус-группах.',
+  },
+  {
+    title: 'Запуск и масштаб',
+    details: 'Релиз кампаний, настройка автоматизации и итеративная оптимизация.',
+  },
+]
+
+const metrics = [
+  { label: 'Командных часов сохранено', value: '1200+' },
+  { label: 'Средний рост лидов', value: 'x3.4' },
+  { label: 'Срок внедрения', value: '6 недель' },
+]
+
+const App: FC = () => {
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-midnight font-montserrat text-slate-100">
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-40">
+        <div className="absolute -left-32 top-24 h-96 w-96 rounded-full bg-lilac blur-3xl" />
+        <div className="absolute right-[-12rem] top-1/3 h-[28rem] w-[28rem] rounded-full bg-aurora blur-3xl" />
+        <div
+          className="absolute bottom-0 left-0 h-full w-full bg-grid-pattern"
+          style={{ backgroundSize: '60px 60px' }}
+        />
+      </div>
+
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-midnight via-midnight/90 to-transparent" />
+
+      <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-20 pt-10 sm:px-10">
+        <header className="flex items-center justify-between gap-6 rounded-full border border-white/10 bg-white/5 px-6 py-4 backdrop-blur">
+          <span className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
+            Studio Konch
+          </span>
+          <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 sm:flex">
+            <a className="transition hover:text-white" href="#expertise">
+              Экспертиза
+            </a>
+            <a className="transition hover:text-white" href="#process">
+              Процесс
+            </a>
+            <a className="transition hover:text-white" href="#metrics">
+              Метрики
+            </a>
+            <a className="transition hover:text-white" href="#cta">
+              Связаться
+            </a>
+          </nav>
+          <button className="rounded-full bg-gradient-to-r from-aurora to-lilac px-5 py-2 text-sm font-semibold text-midnight shadow-glow transition hover:shadow-lg">
+            Записаться на созвон
+          </button>
+        </header>
+
+        <main className="mt-16 flex flex-1 flex-col gap-24">
+          <section className="relative grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="space-y-10">
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                Новый взгляд на бренд
+              </div>
+              <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+                Трансформируем бренды в живые экосистемы, которые вдохновляют клиентов каждый день.
+              </h1>
+              <p className="max-w-xl text-lg text-white/70">
+                Комбинируем стратегию, дизайн и цифровые продукты, чтобы создать устойчивую платформу взаимодействия.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-midnight transition hover:bg-slate-200">
+                  Обсудить проект
+                </button>
+                <button className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white">
+                  Посмотреть подход
+                </button>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <div className="absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-aurora/60 blur-3xl" />
+              <div className="relative space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+                    Индекс вовлеченности
+                  </span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/60">
+                    +18%
+                  </span>
+                </div>
+                <div className="h-2 rounded-full bg-white/10">
+                  <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-aurora to-lilac" />
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {metrics.map((metric) => (
+                    <div
+                      key={metric.label}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center"
+                    >
+                      <div className="text-2xl font-semibold text-white">{metric.value}</div>
+                      <div className="mt-1 text-xs text-white/60">{metric.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
