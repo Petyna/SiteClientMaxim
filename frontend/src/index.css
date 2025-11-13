@@ -25,9 +25,4 @@ a {
 a:focus-visible {
   box-shadow: 0 0 0 2px rgba(255, 74, 252, 0.45);
   border-radius: 9999px;
-  @apply min-h-screen bg-midnight text-slate-100 antialiased;
-}
-
-a {
-  @apply outline-none focus-visible:ring-2 focus-visible:ring-aurora/60 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight;
 }
