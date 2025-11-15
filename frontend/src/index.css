@@ -1,21 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'BebasNeueBold';
+  src: url('/fonts/BebasNeueCyrillic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-}
-
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #050014;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #010005 0%,
+      #05000c 40%,
+      #090012 60%,
+      #12001b 80%,
+      #1e0130 100%
+    );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 130% 130%;
+  background-position: 50% 0%;
+  animation: gradientBreath 3s ease-in-out infinite alternate;
+
   color: #f9f6ff;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.14) 1px, transparent 1px);
+
+  background-size: 110px 110px;
+  opacity: 1;
+
+  transform: translate3d(0, 0, 0) scale(1);
+  animation: gridPulse 25s ease-in-out infinite alternate, gridFloat 25s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+
+  mask-image: radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.9) 0%,
+      rgba(0,0,0,0.55) 60%,
+      rgba(0,0,0,0.15) 75%,
+      rgba(0,0,0,0.0) 100%
+  );
+
+  -webkit-mask-image: radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.9) 0%,
+      rgba(0,0,0,0.55) 60%,
+      rgba(0,0,0,0.15) 75%,
+      rgba(0,0,0,0.0) 100%
+  );
+}
+
+@keyframes gradientBreath {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 48% 6%;
+  }
+  100% {
+    background-position: 52% 0%;
+  }
+}
+
+@keyframes gridFloat {
+  0% {
+    transform: translate3d(-12px, -8px, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(10px, 6px, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-12px, -8px, 0) scale(1.02);
+  }
+}
+
+@keyframes gridPulse {
+  0% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.18));
+  }
+  60% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.12));
+  }
+  100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.25));
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    background-size: 160% 160%;
+    background-position: 50% 10%;
+  }
+
+  body::before {
+    background-size: 90px 90px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-size: 220% 220%;
+    background-position: 55% 18%;
+  }
+
+  body::before {
+    background-size: 70px 70px;
+    opacity: 0.75;
+  }
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -26,3 +149,5 @@ a:focus-visible {
   box-shadow: 0 0 0 2px rgba(255, 74, 252, 0.45);
   border-radius: 9999px;
 }
+
+

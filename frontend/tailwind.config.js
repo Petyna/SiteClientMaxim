@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ['"Montserrat"', 'sans-serif'],
+        bebas: ['"BebasNeueBold"', '"Bebas Neue"', 'sans-serif'],
       },
       colors: {
         midnight: '#0b1220',
