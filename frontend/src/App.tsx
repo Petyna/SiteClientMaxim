@@ -91,29 +91,31 @@ const reviewImages = [
 
 const faqItems = [
   {
-    question: 'Сколько вариантов дизайна вы предоставляете?',
+    question: 'Что от меня нужно для начала работы?',
     answer:
-      'Под каждый проект готовлю один выверенный концепт, который базируется на аналитике и прототипировании. В стоимость входят правки по согласованному ТЗ.',
+      'Для старта нужна информация о товаре и фотографии. Если их нет, подготовлю ТЗ и визуалы самостоятельно, используя искусственный интеллект.',
   },
   {
-    question: 'Какие материалы нужны для старта?',
+    question: 'У меня нет фотографий — что делать?',
     answer:
-      'Поможет заполненный бриф, доступы к продукту и понимание целевой аудитории. При необходимости помогу собрать недостающую информацию.',
+      'Создам изображения сам с помощью искусственного интеллекта и при необходимости подберу стоковые фото, чтобы точно визуализировать ваш продукт.',
   },
   {
-    question: 'Можете ли вы взять проект «под ключ»?',
-    answer:
-      'Да, сопровождению под ключ уделяется особое внимание: от аналитики и упаковки до методичек для менеджеров и рекомендаций по запуску.',
+    question: 'Какие есть способы оплаты?',
+    answer: 'Принимаю оплату по банковской карте или по счету, без НДС и дополнительных надбавок.',
   },
   {
-    question: 'Какой срок производства?',
+    question: 'Сколько времени занимает разработка?',
     answer:
-      'В среднем на проект уходит от 5 до 10 рабочих дней в зависимости от объема. Ставлю реальные дедлайны и держу вас в курсе прогресса.',
+      'Срок зависит от объема заказа. Работаю по живой очереди и сдаю проект в дату, которую согласуем вместе.',
   },
   {
-    question: 'Можно ли заказать тестовую карточку?',
-    answer:
-      'Да, доступен формат пилотного проекта. Он поможет познакомиться с подходом и оценить, как визуал влияет на продажи вашего продукта.',
+    question: 'У меня крупный заказ. Можете сделать скидку?',
+    answer: 'Да, при большом объеме предоставляю скидку 10–15% в зависимости от задач.',
+  },
+  {
+    question: 'Сколько правок бесплатно? Работаете по договору?',
+    answer: 'Включено два круга правок без доплат, при необходимости заключим договор.',
   },
 ]
 
@@ -138,7 +140,7 @@ const App: FC = () => {
 
     const updateSlots = () => {
       setVisibleReviewSlots(getSlots())
-      setIsCompactNav(window.innerWidth < 1200)
+      setIsCompactNav(window.innerWidth < 1024)
     }
 
     updateSlots()
@@ -194,8 +196,8 @@ const App: FC = () => {
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-[-12rem] top-[-8rem] h-[28rem] w-[28rem] rounded-full" />
           <div className="absolute right-[-10rem] top-[40%] h-[24rem] w-[24rem] rounded-full" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,74,252,0.12),transparent_58%)] sm:hidden" />
-          <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_top,rgba(255,74,252,0.2),transparent_60%)] sm:block" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255, 74, 252, 0.63),transparent_58%)] sm:hidden" />
+          <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_top,rgba(255, 74, 252, 0.38),transparent_60%)] sm:block" />
         </div>
 
         <motion.section
@@ -214,10 +216,10 @@ const App: FC = () => {
         }}
 />
 
-            <div className="absolute inset-x-0 top-0 z-30 flex justify-center px-4 pt-6 sm:px-8 lg:px-12">
+            <div className="absolute left-0 top-[-1rem] z-30 w-full flex justify-start px-2 pt-0 sm:px-4 lg:px-6">
               <div className="w-full">
                 {!isCompactNav && (
-                  <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3 px-1 py-2 md:gap-4 lg:px-3 xl:gap-6">
                     <a href="https://t.me/EvgenyCreativity" target="_blank" rel="noreferrer">
                       <img
                         src="images/logo.png"
@@ -226,7 +228,7 @@ const App: FC = () => {
                       />
                     </a>
 
-                    <nav className="hidden lg:flex items-center gap-16 text-[20px] font-medium text-white">
+                    <nav className="hidden lg:flex flex-wrap items-center gap-6 text-sm font-medium text-white xl:gap-10 xl:text-base 2xl:gap-14 2xl:text-lg">
                       <a href="#portfolio" className="transition-colors duration-200 hover:text-white/80">
                         Портфолио
                       </a>
@@ -241,12 +243,12 @@ const App: FC = () => {
                       </a>
                     </nav>
 
-                    <div className="relative hidden sm:block">
+                    <div className="relative hidden flex-shrink-0 sm:block">
                       <motion.a
                         href="https://t.me/work_miracles1"
                         target="_blank"
                         rel="noreferrer"
-                        className="relative origin-left inline-flex items-center gap-4 rounded-full border-2 border-white bg-[linear-gradient(95deg,#ff6af6_0%,#d83bff_100%)] px-12 py-4 text-xl font-semibold text-white shadow-[0_12px_45px_rgбаи(255,106,246,0.5)] transition-transform duration-300 -ml-16 mt-3 before:absolute before:inset-0 before:-z-10 before:content-[''] before:rounded-full before:bg-[#ff6af6]/45 before:blur-[36px]"
+                        className="relative origin-left inline-flex items-center gap-4 rounded-full border-2 border-white bg-[linear-gradient(95deg,#ff6af6_0%,#d83bff_100%)] px-8 py-3 text-lg font-semibold text-white shadow-[0_12px_45px_rgбаи(255,106,246,0.5)] transition-transform duration-300 -ml-6 mt-6 sm:px-10 sm:py-4 sm:-ml-8 sm:mt-7 md:px-12 md:text-xl md:py-4 md:-ml-10 md:mt-8 lg:-ml-8 lg:mt-8 xl:-ml-6 before:absolute before:inset-0 before:-z-10 before:content-[''] before:rounded-full before:bg-[#ff6af6]/45 before:blur-[32px]"
                         whileHover={{ scale: 1.01, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } }}
                         whileTap={{ scale: 0.99, transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] } }}
                       >
@@ -301,7 +303,7 @@ const App: FC = () => {
                 href="https://t.me/work_miracles1"
                 target="_blank"
                 rel="noreferrer"
-                className="absolute bottom-[4%] left-[19%] z-30 inline-flex items-center gap-3 rounded-full border-2 border-white bg-[linear-gradient(95deg,#ff6af6_0%,#d83bff_100%)] px-10 py-4 text-xl font-semibold text-white shadow-[0_18px_60px_rgбаи(255,106,246,0.55)] before:absolute before:inset-0 before:-z-10 before:content-[''] before:rounded-full before:bg-[#ff6af6]/45 before:blur-[32px]"
+                className="hero-cta absolute bottom-[1%] bottom-[4.5%] z-30 inline-flex items-center gap-3 rounded-full border-2 border-white bg-[linear-gradient(95deg,#ff6af6_0%,#d83bff_100%)] px-10 py-4 text-xl font-semibold text-white shadow-[0_18px_60px_rgбаи(255,106,246,0.55)] before:absolute before:inset-0 before:-z-10 before:content-[''] before:rounded-full before:bg-[#ff6af6]/45 before:blur-[32px]"
                 initial={{ opacity: 0, y: 20, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
@@ -331,10 +333,12 @@ const App: FC = () => {
           </div>
         )}
 
-        <div className="relative mx-auto flex max-w-[1600px] flex-col px-4 pb-20 pt-14 sm:px-8 lg:px-12">
+        <div className="relative mx-auto flex w-full max-w-[clamp(1300px,70vw,1600px)] flex-col px-[clamp(0.5rem,0.5vw,0.5rem)] pb-20 pt-14">
+
+
           <div className="text-center">
             <motion.h1
-              className="text-[clamp(3.25rem,12vw,10.5rem)] font-bebas font-extrabold uppercase leading-tight italic"
+              className="text-[clamp(3rem,12vw,9.5rem)] font-bebas font-extrabold uppercase leading-tight italic"
               initial={{ opacity: 0, y: 36, scale: 0.94 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -355,7 +359,7 @@ const App: FC = () => {
             >
               <div className="flex flex-col gap-6">
                 <div className="flex items-start gap-12">
-                  <div className="h-60 w-1 bg-[#ff4afc]" />
+                  <div className="h-80 w-3 bg-[#ff4afc]" />
                   <p className="max-w-[500px] text-3xl text-white">
                     Я <span className="font-bold text-[#ff4afc]">Евгений Орлов</span>,<br/>
                     профессиональный дизайнер с опытом работы более
@@ -374,7 +378,7 @@ const App: FC = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.94 }}
                     >
-                      ‹
+                      <img src="/images/leftarrow.png" alt="" className="h-6 w-6" aria-hidden />
                     </motion.button>
                     <motion.button
                       className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white bg-[#ff4afc] text-2xl text-white shadow-[0_10px_35px_rgба(255,74,252,0.35)]"
@@ -383,7 +387,7 @@ const App: FC = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.94 }}
                     >
-                      ›
+                      <img src="/images/rightarrow.png" alt="" className="h-6 w-6" aria-hidden />
                     </motion.button>
                   </div>
                   <span className="text-md text-white">жми на стрелку</span>
@@ -469,7 +473,7 @@ const App: FC = () => {
         transition={{ duration: 2, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div className="absolute left-1/2 top-10 h-48 w-[60%] -translate-x-1/2 rounded-full bg-[#ff4afc]/15 blur-[160px]" />
-        <div className="relative mx-auto max-w-[1600px] px-4 sm:px-8 lg:px-12">
+        <div className="relative mx-auto w-full max-w-[clamp(1300px,70vw,1600px)] px-[clamp(0.5rem,0.5vw,0.5rem)]">
 
           <motion.div
             className="mt-16 grid gap-12 sm:grid-cols-2 xl:grid-cols-4"
@@ -509,10 +513,10 @@ const App: FC = () => {
   {/* Нижний цветной фон */}
   <div className="absolute inset-0 z-0 pointer-events-none">
     <div
-      className="h-full w-full bg-[#ff4afc]"
+className="h-full w-full bg-[#ff4afc]"
       style={{
-        opacity: "0.9",
-        mixBlendMode: "overlay"
+        opacity: '0.9',
+        mixBlendMode: 'overlay'
       }}
     />
   </div>
@@ -553,7 +557,7 @@ const App: FC = () => {
 
   {/* Контент поверх обоих слоев */}
   <motion.div
-    className="relative z-[2] mx-auto flex max-w-[1600px] flex-col items-center gap-8 px-4 text-center text-white sm:px-10 lg:px-16"
+    className="relative z-[2] mx-auto flex w-full max-w-[clamp(1300px,70vw,1600px)] flex-col items-center gap-8 px-[clamp(0.5rem,0.5vw,0.5rem)] text-center text-white"
     initial={{ opacity: 0, y: 48, scale: 0.93 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={{ once: true, amount: 0.18 }}
@@ -603,11 +607,11 @@ const App: FC = () => {
             ТЗ, при необходимости составляю его сам, анализирую конкурентов и нишу товара
           </motion.p>
         </div>
-        <div className="group mx-auto flex h-44 w-44 items-center justify-center overflow-hidden rounded-[28px] bg-[#f3ebff] shadow-[0_14px_55px_rgба(60,0,120,0.25)] sm:mx-0">
+        <div className="group mx-auto flex aspect-square w-[9rem] items-center justify-center overflow-hidden rounded-[28px] sm:mx-0 sm:w-[10.5rem] md:w-[11.5rem] lg:w-[12.5rem]">
           <img
             src="/images/work/lupa.png"
             alt="Иконка анализа"
-            className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.05]"
+            className="h-full w-full object-contain"
           />
         </div>
       </motion.article>
@@ -619,7 +623,7 @@ const App: FC = () => {
       >
         <div className="max-w-[420px] space-y-4">
           <motion.h3
-            className="text-4xl font-black italic tracking-tight text-[#120026]"
+            className="text-5xl font-black italic tracking-tight text-[#120026]"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -637,11 +641,11 @@ const App: FC = () => {
             Стоимости и сроков. Предложу несколько тарифов на выбор, чтобы вы выбрали подходящий
           </motion.p>
         </div>
-        <div className="group mx-auto flex h-44 w-44 items-center justify-center overflow-hidden rounded-[28px] bg-[#fef4ff] shadow-[0_14px_55px_rgба(60,0,120,0.25)] sm:mx-0">
+        <div className="group mx-auto flex aspect-square w-[9rem] items-center justify-center overflow-hidden rounded-[28px] 60,0,120,0.25)] md:w-[11.5rem] lg:w-[12.5rem]">
           <img
             src="/images/work/money.png"
             alt="Иконка согласования"
-            className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.05]"
+            className="h-full w-full object-contain"
           />
         </div>
       </motion.article>
@@ -756,63 +760,84 @@ const App: FC = () => {
         viewport={{ once: true, amount: 0.16 }}
         transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        <div className="mx-auto max-w-[1600px] px-4 sm:px-8 lg:px-12">
+        <div className="mx-auto w-full max-w-[clamp(1300px,70vw,1600px)] px-[clamp(0.5rem,0.5vw,0.5rem)]">
+
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-xl space-y-6">
-              <motion.h2
-                className="text-[clamp(3.2rem,9vw,10.5rem)] font-bebas font-extrabold uppercase leading-[0.95] italic"
-                initial={{ opacity: 0, y: 32, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <span className="block whitespace-nowrap">Отзывы о работе</span>
-                <span className="block text-[#ff4afc]">со мной</span>
-              </motion.h2>
-              <motion.div
-                className="inline-flex items-center gap-5 rounded-full border border-[#ff4afc] bg-[#110025] px-6 py-3 shadow-[0_14px_45px_rgба(255,74,252,0.25)]"
-                initial={{ opacity: 0, y: 26, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.32 }}
-                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff4afc] text-2xl font-bold text-[#050014]">
-                  4.8
-                </span>
-                <div className="text-xs uppercase tracking-wider text-white/70">
-                  <div className="text-sm font-semibold text-white">Рейтинг</div>
-                  <div className="text-white/60">на основе авито</div>
-                </div>
-              </motion.div>
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+                <motion.h2
+                  className="flex flex-col gap-4 text-[clamp(3.2rem,9vw,10.5rem)] font-bebas font-extrabold leading-[0.95] italic"
+                  initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  <span className="block whitespace-nowrap">Отзывы о работе </span>
+                  <span className="flex w-full flex-wrap items-center gap-2 text-white sm:flex-nowrap">
+                    <span className="block flex-1 text-white">со мной</span>
+                    <motion.span
+                      className="inline-flex flex-shrink-0 items-center gap-4 rounded-full border-2 border-white bg-[linear-gradient(95deg,#ff6af6_0%,#d83bff_100%)] px-6 py-2 font-montserrat normal-case shadow-[0_18px_55px_rgбаи(255,74,252,0.3)] sm:ml-auto"
+                      initial={{ opacity: 0, y: 26, scale: 0.96 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, amount: 0.32 }}
+                      transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+                      aria-hidden
+                    >
+                      <div className="flex items-center gap-4 rounded-full bg-[linear-gradient(90deg,#ff6af6,#d83bff)] px-6 py-2 shadow-[0_8px_22px_rgба(255,74,252,0.45)]">
+                        <span className="-ml-4 flex h-14 w-14 items-center justify-center rounded-full bg-black font-bebas text-[32px] font-extrabold leading-none text-[#ff6af6] not-italic">
+                          4.8
+                        </span>
+                        <div className="flex min-w-[11rem] flex-col items-start leading-tight text-left font-montserrat normal-case">
+                          <div className="mb-1 flex items-center">
+                            {Array.from({ length: 5 }).map((_, idx) => (
+                              <svg
+                                key={idx}
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="white"
+                                className="h-4 w-4"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            ))}
+                          </div>
+                          <span className="text-sm font-semibold text-white/95">Рейтинг</span>
+                          <span className="text-sm font-semibold text-white/90">на основе Авито</span>
+                        </div>
+                      </div>
+                    </motion.span>
+                  </span>
+                </motion.h2>
+              </div>
             </div>
 
             <div className="flex flex-col items-start gap-4 text-[#ff4afc] lg:items-end">
               <div className="flex flex-col items-center gap-2">
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   <motion.button
                     aria-label="Предыдущий отзыв"
-                    className="flex h-14 w-14 items-center justify-center rounded-[16px] border border-white bg-[#ff4afc] text-2xl text-white shadow-[0_10px_35px_rgба(255,74,252,0.35)] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-24 w-24 items-center justify-center rounded-[18px] border border-white bg-[#ff4afc] text-2xl text-white shadow-[0_12px_40px_rgбаи(255,74,252,0.4)] disabled:cursor-not-allowed disabled:opacity-50"
                     type="button"
                     onClick={handlePrevReview}
                     disabled={!canUseCarousel}
                     whileHover={{ scale: canUseCarousel ? 1.05 : 1 }}
                     whileTap={{ scale: canUseCarousel ? 0.95 : 1 }}
                   >
-                    ‹
+                    <img src="/images/leftarrow.png" alt="" className="h-12 w-12" aria-hidden />
                   </motion.button>
                   <motion.button
                     aria-label="Следующий отзыв"
-                    className="flex h-14 w-14 items-center justify-center rounded-[16px] border border-white bg-[#ff4afc] text-2xl text-white shadow-[0_10px_35px_rgба(255,74,252,0.35)] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-24 w-24 items-center justify-center rounded-[18px] border border-white bg-[#ff4afc] text-2xl text-white shadow-[0_12px_40px_rgбаи(255,74,252,0.4)] disabled:cursor-not-allowed disabled:opacity-50"
                     type="button"
                     onClick={handleNextReview}
                     disabled={!canUseCarousel}
                     whileHover={{ scale: canUseCarousel ? 1.05 : 1 }}
                     whileTap={{ scale: canUseCarousel ? 0.95 : 1 }}
                   >
-                    ›
+                    <img src="/images/rightarrow.png" alt="" className="h-12 w-12" aria-hidden />
                   </motion.button>
                 </div>
-                <span className="text-md text-white text-center">жми на стрелку</span>
+                <span className="text-lg text-center text-white">жми на стрелку</span>
               </div>
             </div>
           </div>
@@ -861,7 +886,8 @@ const App: FC = () => {
         viewport={{ once: true, amount: 0.16 }}
         transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        <div className="relative mx-auto max-w-[1600px] px-4 sm:px-10 lg:px-14">
+        <div className="relative mx-auto w-full max-w-[clamp(1300px,70vw,1600px)] px-[clamp(0.5rem,0.5vw,0.5rem)]">
+
           <div className="text-left">
             <motion.h2
               className="text-[clamp(3.2rem,9vw,10.5rem)] font-bebas font-extrabold uppercase leading-none italic tracking-tight"
@@ -936,7 +962,7 @@ const App: FC = () => {
           <div className="flex w-full flex-col items-center gap-8">
             <div className="h-px w-full max-w-[840px] bg-white/18" />
             <motion.h2
-              className="text-[clamp(3rem,9vw,10.5rem)] font-bebas max-w-[1600px] font-extrabold uppercase leading-[0.9] italic tracking-tight"
+              className="text-[clamp(2rem,8vw,10.5rem)] font-bebas max-w-[clamp(1300px,70vw,1600px)] font-extrabold uppercase leading-[0.9] italic tracking-tight"
               initial={{ opacity: 0, y: 40, scale: 0.94 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -953,16 +979,16 @@ const App: FC = () => {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.95, delay: 0.08, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Давайте обсудим вашу задачу. Расскажите о продукте и целях, а я предложу стратегию оформления карточки, которая отработает на рост продаж.
+              Давайте обсудим. Вы расскажете вашу ситуацию, а я подскажу, как лучше подойти к оформлению карточки.
             </motion.p>
             <div className="h-24" />
           </div>
 
           <div
-            className="relative w-full rounded-t-[54px] border border-white/12 bg-[#0e0e0f] px-4 pb-[6.5rem] pt-24 text-left  sm:rounded-t-[72px] sm:px-10 lg:px-16"
+            className="relative w-full rounded-t-[54px] border border-white/12 bg-[#060606] px-4 pb-[6.5rem] pt-24 text-left  sm:rounded-t-[72px] sm:px-10 lg:px-16"
           >
             <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-t-[72px]">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050008]/85 to-[#050008]" />
+              <div className="absolute inset-0" />
               <img
                 src="/images/footer/bg.png"
                 alt="Фоновое оформление"
@@ -976,6 +1002,7 @@ const App: FC = () => {
               href="https://t.me/work_miracles1"
               target="_blank"
               rel="noreferrer"
+              whileHover={{ scale: 1.01, transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] } }}
               whileTap={{ scale: 0.99, transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] } }}
             >
               Заказать
@@ -986,51 +1013,87 @@ const App: FC = () => {
               />
             </motion.a>
 
-            <div className="relative z-20 flex -translate-y-4 flex-col gap-6 text-sm text-white/70 sm:gap-8 lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between">
-              <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
-                <a href="https://t.me/EvgenyCreativity" target="_blank" rel="noreferrer">
-                  <img src="images/logo.png" alt="Evgeny Creativity" className="h-11 w-auto transition-transform duration-300 hover:scale-105" />
-                </a>
-                <div className="space-y-1">
-                  <div className="text-base font-semibold text-white">Студия разработки продающей инфографики с 2020 года</div>
-                  <div className="text-xs text-white/45 sm:text-sm">
-                    ИП Андрианов Платон Алексеевич  ОГРНИП: 317784700167350  ИНН: 780108298618
-                  </div>
-                </div>
-              </div>
+            <div className="relative z-20 flex -translate-y-4 flex-col gap-6 text-sm text-white/70 sm:gap-8">
 
-              <div className="flex flex-wrap items-center justify-center gap-4 text-white/70 sm:gap-6 lg:gap-10">
-                <motion.a
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/5 transition-colors duration-200 hover:border-[#ff4afc]/70 hover:bg-[#ff4afc]/12"
-                  href="https://t.me/work_miracles1"
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
-                    alt="Telegram"
-                    className="h-6 w-6"
-                  />
-                </motion.a>
-                <a className="text-sm transition-colors duration-200 hover:text-white" href="#">Политика конфиденциальности</a>
-                <a className="text-sm transition-colors duration-200 hover:text-white" href="#">Договор оферта</a>
-              </div>
+  {/* ============ 1 ЛИНИЯ ============ */}
+  <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
 
-              <div className="flex items-center justify-center lg:justify-end">
-                <motion.a
-                  className="inline-flex items-center gap-3 rounded-full border bg-[#0e0e0f] border-[#ff4afc] px-6 py-2 text-sm font-semibold uppercase text-white transition-colors duration-200 hover:bg-[#ff4afc]/15"
-                  href="#top"
-                  onClick={handleScrollTop}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4afc] text-[#050014]">↑</span>
-                  наверх
-                </motion.a>
-              </div>
-            </div>
+    {/* ----------- ЛЕВАЯ ЧАСТЬ ----------- */}
+    <div className="flex items-center gap-5">
+      <a
+        href="https://t.me/EvgenyCreativity"
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-3"
+      >
+        <img
+          src="images/logo.png"
+          alt="Evgeny Creativity"
+          className="h-8 w-auto transition-transform duration-300 hover:scale-105"
+        />
+      </a>
+
+      <div className="text-xl text-white leading-snug">
+        Студия разработки<br />
+        продающей инфографики<br />
+        с 2020 года
+      </div>
+    </div>
+
+    {/* ----------- ЦЕНТРАЛЬНАЯ ЧАСТЬ ----------- */}
+    <div className="flex items-center justify-center gap-10 lg:gap-12">
+
+      <motion.a
+        className="flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#ff4afc]/12"
+        href="https://t.me/work_miracles1"
+        target="_blank"
+        rel="noreferrer"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.97 }}
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
+          alt="Telegram"
+          className="h-10 w-10"
+        />
+      </motion.a>
+
+      <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
+        Политика конфиденциальности
+      </a>
+
+      <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
+        Договор оферта
+      </a>
+    </div>
+
+    {/* ----------- ПРАВАЯ ЧАСТЬ ----------- */}
+    <div className="flex items-center justify-center sm:justify-end">
+      <motion.a
+        className="inline-flex items-center gap-3 rounded-full border bg-[#0e0e0f] border-[#ff4afc] px-6 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#ff4afc]/15"
+        href="#top"
+        onClick={handleScrollTop}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.96 }}
+      >
+        <span className="flex h-6 w-10 items-center justify-center rounded-full text-white text-lg">
+          ↑
+        </span>
+        наверх
+      </motion.a>
+    </div>
+
+  </div>
+
+  {/* ============ 2 ЛИНИЯ ============ */}
+  <div className="pt-6 text-center text-xs font-normal text-white/70 sm:text-sm sm:text-left">
+    <span className="mr-12">ИП Андрианов Платон Алексеевич</span>
+    <span className="mr-12">ОГРНИП: 317784700167350</span>
+    <span>ИНН: 780108298618</span>
+  </div>
+
+</div>
+
           </div>
         </div>
       </section>
