@@ -276,12 +276,11 @@ const App: FC = () => {
     object-bottom
     z-100
     left-1/4
+    transform translate-y-8 sm:translate-y-12 lg:translate-y-16
   "
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: [0, 30, 40] }}
   transition={{
     opacity: { duration: 2 },
-    y: { duration: 1, repeat: Infinity }
+    y: { duration: 2, repeat: 1 },
   }}
 />
 
@@ -289,11 +288,9 @@ const App: FC = () => {
               src="/images/hero/overlay.png"
               alt="Световые эффекты"
               className="pointer-events-none absolute inset-0 z-25 h-full w-full object-cover"
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: [1.04, 1.1, 1.04] }}
               transition={{
                 opacity: { duration: 3, ease: [0.25, 0.1, 0.25, 1] },
-                scale: { duration: 24, repeat: Infinity, ease: 'easeInOut' },
+                scale: { duration: 24, repeat: 1, ease: 'easeInOut' },
               }}
             />
 
