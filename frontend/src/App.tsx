@@ -93,29 +93,29 @@ const faqItems = [
   {
     question: 'Что от меня нужно для начала работы?',
     answer:
-      'Для старта нужна информация о товаре и фотографии. Если их нет, подготовлю ТЗ и визуалы самостоятельно, используя искусственный интеллект.',
+      'Для начала работы нам необходима информация о товаре и фотографии. Если ее нет, то тз и фотографии я смогу составить сам, используя искусственный интеллект',
   },
   {
     question: 'У меня нет фотографий — что делать?',
     answer:
-      'Создам изображения сам с помощью искусственного интеллекта и при необходимости подберу стоковые фото, чтобы точно визуализировать ваш продукт.',
+      'Если их нет, то фотографии я смогу создать сам, используя искуственный интелект, идеально визуализируя функции вашего товара, по необходимости найду фото на стоках в интернете',
   },
   {
     question: 'Какие есть способы оплаты?',
-    answer: 'Принимаю оплату по банковской карте или по счету, без НДС и дополнительных надбавок.',
+    answer: 'Оплата по банковской карте или по счету без ндс и надбавок',
   },
   {
     question: 'Сколько времени занимает разработка?',
     answer:
-      'Срок зависит от объема заказа. Работаю по живой очереди и сдаю проект в дату, которую согласуем вместе.',
+      'Сроки зависят от объема вашего заказа. Я работаю в порядке живой очереди и выполняю ваш заказ в день обозначенный вместе с вами',
   },
   {
     question: 'У меня крупный заказ. Можете сделать скидку?',
-    answer: 'Да, при большом объеме предоставляю скидку 10–15% в зависимости от задач.',
+    answer: 'Да, при большом объем я предлагаю скидку 10% - 15%, в зависимости от объема',
   },
   {
     question: 'Сколько правок бесплатно? Работаете по договору?',
-    answer: 'Включено два круга правок без доплат, при необходимости заключим договор.',
+    answer: 'Бесплатно вы можете внести 2 круга правок, при необходимости заключим договор',
   },
 ]
 
@@ -277,14 +277,13 @@ const App: FC = () => {
     z-100
     left-1/4
   "
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1, y: [0, -10, 0] }}
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: [0, 30, 40] }}
   transition={{
     opacity: { duration: 2 },
     y: { duration: 1, repeat: Infinity }
   }}
 />
-
 
             <motion.img
               src="/images/hero/overlay.png"
@@ -1015,85 +1014,88 @@ className="h-full w-full bg-[#ff4afc]"
 
             <div className="relative z-20 flex -translate-y-4 flex-col gap-6 text-sm text-white/70 sm:gap-8">
 
-  {/* ============ 1 ЛИНИЯ ============ */}
-  <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+              {/* ============ 1 ЛИНИЯ ============ */}
+              <div className="flex w-full flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
 
-    {/* ----------- ЛЕВАЯ ЧАСТЬ ----------- */}
-    <div className="flex items-center gap-5">
-      <a
-        href="https://t.me/EvgenyCreativity"
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center gap-3"
-      >
-        <img
-          src="images/logo.png"
-          alt="Evgeny Creativity"
-          className="h-8 w-auto transition-transform duration-300 hover:scale-105"
-        />
-      </a>
+                {/* ----------- ЛЕВАЯ ЧАСТЬ ----------- */}
+                <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
+                  <a
+                    href="https://t.me/EvgenyCreativity"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-3"
+                  >
+                    <img
+                      src="images/logo.png"
+                      alt="Evgeny Creativity"
+                      className="h-8 w-auto transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
 
-      <div className="text-xl text-white leading-snug">
-        Студия разработки<br />
-        продающей инфографики<br />
-        с 2020 года
-      </div>
-    </div>
+                  <div className="text-xl text-white leading-snug">
+                    Студия разработки<br />
+                    продающей инфографики<br />
+                    с 2020 года
+                  </div>
+                </div>
 
-    {/* ----------- ЦЕНТРАЛЬНАЯ ЧАСТЬ ----------- */}
-    <div className="flex items-center justify-center gap-10 lg:gap-12">
+                {/* ----------- ЦЕНТРАЛЬНАЯ ЧАСТЬ ----------- */}
+                <div className="flex flex-col items-center gap-5 text-center sm:flex-1 sm:flex-row sm:items-center sm:justify-center sm:gap-10">
 
-      <motion.a
-        className="flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#ff4afc]/12"
-        href="https://t.me/work_miracles1"
-        target="_blank"
-        rel="noreferrer"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
-          alt="Telegram"
-          className="h-10 w-10"
-        />
-      </motion.a>
+                  <motion.a
+                    className="flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#ff4afc]/12"
+                    href="https://t.me/work_miracles1"
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
+                      alt="Telegram"
+                      className="h-10 w-10"
+                    />
+                  </motion.a>
 
-      <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
-        Политика конфиденциальности
-      </a>
+                  <div className="flex flex-col gap-3 text-base text-white/80 sm:flex-row sm:items-center sm:gap-10">
+                    <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
+                      Политика конфиденциальности
+                    </a>
 
-      <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
-        Договор оферта
-      </a>
-    </div>
+                    <a className="text-sm transition-colors duration-200 hover:text-white" href="#">
+                      Договор оферта
+                    </a>
+                  </div>
+                </div>
 
-    {/* ----------- ПРАВАЯ ЧАСТЬ ----------- */}
-    <div className="flex items-center justify-center sm:justify-end">
-      <motion.a
-        className="inline-flex items-center gap-3 rounded-full border bg-[#0e0e0f] border-[#ff4afc] px-6 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#ff4afc]/15"
-        href="#top"
-        onClick={handleScrollTop}
-        whileHover={{ scale: 1.01 }}
-        whileTap={{ scale: 0.96 }}
-      >
-        <span className="flex h-6 w-10 items-center justify-center rounded-full text-white text-lg">
-          ↑
-        </span>
-        наверх
-      </motion.a>
-    </div>
+                {/* ----------- ПРАВАЯ ЧАСТЬ ----------- */}
+                <div className="flex justify-center sm:justify-end">
+                  <motion.a
+                    className="inline-flex items-center gap-3 rounded-full border bg-[#0e0e0f] border-[#ff4afc] px-6 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#ff4afc]/15"
+                    href="#top"
+                    onClick={handleScrollTop}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.96 }}
+                  >
+                    <span className="flex h-6 w-10 items-center justify-center rounded-full text-white text-lg">
+                      ↑
+                    </span>
+                    наверх
+                  </motion.a>
+                </div>
 
-  </div>
+              </div>
 
-  {/* ============ 2 ЛИНИЯ ============ */}
-  <div className="pt-6 text-center text-xs font-normal text-white/70 sm:text-sm sm:text-left">
-    <span className="mr-12">ИП Андрианов Платон Алексеевич</span>
-    <span className="mr-12">ОГРНИП: 317784700167350</span>
-    <span>ИНН: 780108298618</span>
-  </div>
+              {/* ============ 2 ЛИНИЯ ============ */}
+              <div className="pt-6 text-center text-xs font-normal text-white/70 sm:text-sm sm:text-left">
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-12">
+                  <span>ИП Андрианов Платон Алексеевич</span>
+                  <span>ОГРНИП: 317784700167350</span>
+                  <span>ИНН: 780108298618</span>
+                </div>
+              </div>
 
-</div>
-
+            </div>
           </div>
         </div>
       </section>
